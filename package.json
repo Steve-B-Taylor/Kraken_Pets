@@ -10,10 +10,9 @@
     "dev:client": "node_modules/.bin/webpack-dev-server --host 0.0.0.0",
     "webpack": "node_modules/.bin/webpack --config ./webpack.config.js",
     "test": "./node_modules/.bin/jest",
-    "db:import": "psql <replace this with your DB name> < db/schema.sql",
+    "db:import": "psql kraken_pets < ./server/db/schema.sql",
     "db:seed": "node ./server/bin/seed.js"
   },
-
   "devDependencies": {
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
