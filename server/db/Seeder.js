@@ -1,4 +1,3 @@
-// seeder
 import pg from "pg"
 import path from "path"
 import LineReader from "line-reader"

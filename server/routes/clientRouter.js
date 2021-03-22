@@ -1,4 +1,3 @@
-// clientRouter.js
 import express from "express"
 
 const router = new express.Router()

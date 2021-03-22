@@ -1,4 +1,3 @@
-// rootRouter.js
 import express from "express"
 import clientRouter from "./clientRouter.js"
 
