@@ -1,11 +1,12 @@
+// app.js
 import express from "express"
 import path from "path"
 import logger from "morgan"
 import bodyParser from "body-parser"
 import hbsMiddleware from "express-handlebars"
 import _ from "lodash"
-import pg from 'pg'
-import { fileURLToPath } from 'url'
+import pg from "pg"
+import { fileURLToPath } from "url"
 
 const app = express()
 
@@ -31,7 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 // Express routes
-app.get('*', (req, res) => {
+app.get("*", (req, res) => {
   res.render("home")
 })
 
