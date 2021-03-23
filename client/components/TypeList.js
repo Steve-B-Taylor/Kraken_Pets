@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import TypeTile from "./TypeTile.js"
 
 const TypeList = (props) => {
-  const [pets, setPets] = useState[]
+  const [pets, setPets] = useState([])
+
   const getTypes = async () => {
     try {
       const response = await fetch("/api/v1/pets")
@@ -12,6 +13,7 @@ const TypeList = (props) => {
         throw (error)
       }
       const responseData = await response.json()
+    
       setPets(responseData.pets)
     } catch (error) {
       console.error(`Unable to complete data fetch.`)
@@ -26,7 +28,7 @@ const TypeList = (props) => {
     return (
       <TypeTile
         key={petType.id}
-        type={petType}
+        petType={petType}
       />
     )
   })
