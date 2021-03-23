@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS pet_types CASCADE;
 CREATE TABLE pet_types (
   id SERIAL PRIMARY KEY,
   type VARCHAR (255) NOT NULL,
+  img_url VARCHAR (500) NOT NULL,
   description TEXT
 );
 DROP TABLE IF EXISTS adoptable_pets CASCADE;
