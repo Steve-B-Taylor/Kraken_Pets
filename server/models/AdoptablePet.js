@@ -10,7 +10,7 @@ class AdoptablePet {
     this.name = name
     this.imgUrl = img_url || imgUrl
     this.age = age
-    this.vaccinationStatus = vaccination_status || vaccinationStatus
+    this.vaccinationStatus = vaccination_status
     this.adoptionStory = adoption_story || adoptionStory
     this.adoptionStatus = adoption_status || adoptionStatus
     this.typeId = type_id || typeId
