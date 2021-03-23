@@ -8,8 +8,8 @@ petsRouter.get("/", async (req, res) => {
     const pets = await PetType.findAll()
     return res.status(201).json({ pets: pets })
   } catch (error) {
-    console.log(error)
-    return res.status(500).json({errors})
+    console.error(error)
+    return res.status(500).json({error})
   }
 })
 
@@ -18,7 +18,7 @@ petsRouter.get("/:type", async (req, res) => {
     const pet = await PetType.findByType(req.params.type)
     return res.status(200).json({ pet })
   } catch (error) {
-    console.log(error)
+    console.error(error)
     return res.status(500).json({errors})
   }
 })
