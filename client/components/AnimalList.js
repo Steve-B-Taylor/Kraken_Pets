@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import AnimalTile from './AnimalTile.js'
 
-const AnimalsList = (props) => {
+const AnimalList = (props) => {
   const [animalType, setAnimalType] = useState({adoptablePets: []})
 
   const fetchAnimalType = async () => {
@@ -28,10 +28,12 @@ const AnimalsList = (props) => {
     return(
       <AnimalTile 
         key={animal.id}
+        id={animal.id}
         name={animal.name}
         age={animal.age}
         vaccinationStatus={animal.vaccinationStatus}
         imgUrl={animal.imgUrl}
+        type={animalType.type}
       /> 
     )
   })
@@ -41,3 +43,5 @@ const AnimalsList = (props) => {
     </div>
   )
 }
+
+export default AnimalList
