@@ -8,6 +8,7 @@ import AnimalList from "./AnimalList.js"
 import AnimalShow from "./AnimalShow.js"
 // import SurrenderForm from "./SurrenderForm"
 import "../public/style.css"
+import SuccessTile from "./SuccessTile.js"
 
 const App = props => {
   return (
@@ -20,6 +21,7 @@ const App = props => {
         {/* <Route exact path="/pets/new" component={SurrenderForm} /> */}
         <Route exact path="/pets/:type" component={AnimalList} />
         <Route exact path="/pets/:type/:id" component={AnimalShow} />
+        <Route exact path = "/adoptions" component={SuccessTile} />
       </Switch>
     </BrowserRouter>
   )
