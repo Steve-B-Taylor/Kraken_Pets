@@ -1,26 +1,28 @@
-let WriteFilePlugin = require('write-file-webpack-plugin');
+let WriteFilePlugin = require("write-file-webpack-plugin")
 
 var config = {
   entry: {
-    path: './client/main.js',
+    path: "./client/main.js"
   },
   output: {
-    path: __dirname + '/client/public',
-    filename: 'bundle.js'
+    path: __dirname + "/client/public",
+    filename: "bundle.js"
   },
   module: {
     loaders: [
       {
+        test: /\.css$/,
+        loader: "style-loader!css-loader"
+      },
+      {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: "babel-loader"
       }
     ]
   },
-  plugins: [
-    new WriteFilePlugin()
-  ],
-  devtool: 'eval-source-map'
+  plugins: [new WriteFilePlugin()],
+  devtool: "eval-source-map"
 }
 
-module.exports = config;
+module.exports = config
