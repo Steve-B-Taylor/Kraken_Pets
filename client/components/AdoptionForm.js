@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { Redirect } from "react-router-dom"
 import _ from 'lodash'
-import ErrorList from './ErrorList'
 
+import ErrorList from './ErrorList'
 
 const AdoptionForm = (props) => {
   const [newAdoption, setNewAdoption] = useState({
@@ -10,9 +10,10 @@ const AdoptionForm = (props) => {
     phoneNumber = "",
     email = "",
     homeStatus = "" 
-    })
-  const [redirect, setRedirect] = (false)
-  const [redirectId, setRedirectId] = (null)
+  })
+  const [redirect, setRedirect] = useState(false)
+  const [redirectId, setRedirectId] = useState(null)
+  const [errors, setErrors] = useState({})
 
   const addNewApplication = async () => {
     let formPayload = newAdoption 
@@ -29,21 +30,18 @@ const AdoptionForm = (props) => {
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
         throw(error)
-        } 
-           {
+        } else {
         const body = await response.json()
         if(body){
-        setRedirectId(body.adoption.petId)
-        setRedirect(true)
+          setRedirectId(body.adoption.petId)
+          setRedirect(true)
         }  
-        }  
-        } catch (error) {
-        console.error(`Error in fetch: ${error.message}`)   
       }
+    } catch (error) {
+      console.error(`Error in fetch: ${error.message}`)   
+    }
   }
 
-  const [errors, setErrors] = useState({})
- 
   const isFormComplete = () => {
   let submitErrors = {}
   const requiredFields = ["name", "phoneNumber", "email", "homeStatus"]
@@ -68,8 +66,9 @@ const AdoptionForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    if (isFormComplete())
-    addNewApplication(newAdoption)
+    if (isFormComplete()) {
+      addNewApplication(newAdoption)
+      }
     }
 
   if (redirect) {
@@ -79,45 +78,49 @@ const AdoptionForm = (props) => {
   return (
     <form onSubmit={handleSubmit} className="adoption_app">
       <ErrorList error={errors} />
-<h1>Add a new Adoption Application</h1>
-<label>
-  <input 
-  id="name"
-  type="text"
-  name="name"
-  onChange={handleChange}
-  value={newAdoption.name}
-  />
-</label>
-<label>
-  <input 
-  id="phoneNumber"
-  type="text"
-  name="name"
-  onChange={handleChange}
-  value={newAdoption.phoneNumber}
-  />
-</label>
-<label>
-  <input 
-  id="email"
-  type="text"
-  name="email"
-  onChange={handleChange}
-  value={newAdoption.email}
-  />
-</label>
-<label>
-<input 
-  id="homeStatus"
-  type="text"
-  name="homeStatus"
-  onChange={handleChange}
-  value={newAdoption.homeStatus}
-  />
-</label>
-<input type="submit" value="Apply" />
-  </form>
+      <h1>Add a new Adoption Application</h1>
+      <label>
+        <input 
+          id="name"
+          type="text"
+          name="name"
+          onChange={handleChange}
+          value={newAdoption.name}
+        />
+      </label>
+
+      <label>
+        <input 
+          id="phoneNumber"
+          type="text"
+          name="name"
+          onChange={handleChange}
+          value={newAdoption.phoneNumber}
+        />
+      </label>
+
+      <label>
+        <input 
+          id="email"
+          type="text"
+          name="email"
+          onChange={handleChange}
+          value={newAdoption.email}
+        />
+      </label>
+
+      <label>
+        <input 
+          id="homeStatus"
+          type="text"
+          name="homeStatus"
+          onChange={handleChange}
+          value={newAdoption.homeStatus}
+        />
+      </label>
+
+      <input type="submit" value="Apply" />
+    </form>
     )
 }
 
