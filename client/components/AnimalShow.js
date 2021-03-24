@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react"
+import AdoptionForm from "./AdoptionForm.js"
 
 const AnimalShow = props => {
   const [animal, setAnimal] = useState([])
+  const [showForm, setShowForm] = useState(false)
 
   const getAnimal = async () => {
     try {
@@ -35,6 +37,15 @@ const AnimalShow = props => {
     vaccinatedSupplemental = ` (If you're vaccinated, then ${animal.name} will be vaccinated too!)`
   }
 
+  const showAdoptionForm = event => {
+    event.preventDefault()
+    setShowForm(true)
+  }
+  let formDisplay = ""
+  if (showForm) {
+    formDisplay = <AdoptionForm id={props.match.params.id} />
+  }
+
   return (
     <div>
       <h1>{animal.name}'s Page</h1>
@@ -48,6 +59,10 @@ const AnimalShow = props => {
           Vaccination Status: {vaccinated} {vaccinatedSupplemental}
         </li>
       </ul>
+      <button onClick={showAdoptionForm} className="button round">
+        Adopt Me!
+      </button>
+      {formDisplay}
     </div>
   )
 }

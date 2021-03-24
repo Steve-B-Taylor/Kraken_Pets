@@ -2,6 +2,8 @@ import _ from "lodash"
 import React, { useState } from "react"
 import { Redirect } from "react-router-dom"
 
+import Error from "./Error"
+
 const SurrenderForm = props => {
   const [newSurrender, setNewSurrender] = useState({
     name: "",
@@ -87,14 +89,21 @@ const SurrenderForm = props => {
     <div>
       <h1>Surrender Your Pet:</h1>
       <form onSubmit={handleSubmit}>
-        <label>
+        <label htmlFor="name">
           Your Name:
-          <input type="text" name="name" onChange={handleInput} value={newSurrender.name} />
+          <input
+            id="name"
+            type="text"
+            name="name"
+            onChange={handleInput}
+            value={newSurrender.name}
+          />
         </label>
 
-        <label>
+        <label htmlFor="phoneNumber">
           Phone:
           <input
+            id="phoneNumber"
             type="text"
             name="phoneNumber"
             onChange={handleInput}
@@ -102,39 +111,63 @@ const SurrenderForm = props => {
           />
         </label>
 
-        <label>
+        <label htmlFor="email">
           Email:
-          <input type="text" name="email" onChange={handleInput} value={newSurrender.email} />
+          <input
+            id="email"
+            type="text"
+            name="email"
+            onChange={handleInput}
+            value={newSurrender.email}
+          />
         </label>
 
-        <label>
+        <label htmlFor="petName">
           Pets Name:
-          <input type="text" name="petName" onChange={handleInput} value={newSurrender.petName} />
+          <input
+            id="petName"
+            type="text"
+            name="petName"
+            onChange={handleInput}
+            value={newSurrender.petName}
+          />
         </label>
 
-        <label>
+        <label htmlFor="petAge">
           Pets Age:
-          <input type="text" name="petAge" onChange={handleInput} value={newSurrender.petAge} />
+          <input
+            id="petAge"
+            type="text"
+            name="petAge"
+            onChange={handleInput}
+            value={newSurrender.petAge}
+          />
         </label>
 
-        <label>
+        <label htmlFor="petType">
           Pet Type:
-          <select defaultValue={newSurrender.petType} onChange={handleInput}>
-            <option value={(newSurrender.petType = "")}></option>
-            <option value={(newSurrender.petType = "Leeches")}>Leeches</option>
-            <option value={(newSurrender.petType = "Red Garras")}>Red Garras</option>
+          <select id="petType" name="petType" value={newSurrender.petType} onChange={handleInput}>
+            <option value=""></option>
+            <option value="Leeches">Leeches</option>
+            <option value="Red Garras">Red Garras</option>
           </select>
         </label>
 
-        <label>
+        <label htmlFor="vaccinationStatus">
           Vaccinated?
-          <select defaultValue={(newSurrender.vaccinationStatus = "")} onChange={handleInput}>
-            <option value={(newSurrender.vaccinationStatus = "true")}>true</option>
-            <option value={(newSurrender.vaccinationStatus = "false")}>false</option>
+          <select
+            id="vaccinationStatus"
+            name="vaccinationStatus"
+            value={newSurrender.vaccinationStatus}
+            onChange={handleInput}
+          >
+            <option value=""></option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
           </select>
         </label>
 
-        <input type="submit" value="Submit" />
+        <input className="button round" type="submit" value="Submit" />
       </form>
     </div>
   )
