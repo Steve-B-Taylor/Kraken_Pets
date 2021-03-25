@@ -44,8 +44,7 @@ const AdoptionForm = props => {
     const requiredFields = ["name", "phoneNumber", "email", "homeStatus"]
     requiredFields.forEach(field => {
       if (newAdoption[field].trim() === "") {
-        submitErrors ="is required."
-        }
+        submitErrors = { ...submissionErrors, [field]: "is required." }
       }
     })
     setErrors(submitErrors)
