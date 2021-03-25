@@ -11,8 +11,6 @@ const AdoptionForm = props => {
     email: "",
     homeStatus: ""
   })
-  const [redirect, setRedirect] = useState(false)
-  const [redirectId, setRedirectId] = useState(null)
   const [errors, setErrors] = useState([])
 
   const addNewApplication = async () => {
@@ -32,8 +30,8 @@ const AdoptionForm = props => {
         throw error
       } else {
         const body = await response.json()
-        if (body) {
-          setRedirect(true)
+        if (body.newApplication) {
+          props.handleWhatToShow()
         }
       }
     } catch (error) {
@@ -42,9 +40,8 @@ const AdoptionForm = props => {
   }
 
   const isFormComplete = () => {
-    let submitErrors = []
+    let submitErrors = {}
     const requiredFields = ["name", "phoneNumber", "email", "homeStatus"]
-    // const dropDown = event.currentTarget
     requiredFields.forEach(field => {
       if (newAdoption[field].trim() === "") {
         submitErrors = {
@@ -69,10 +66,6 @@ const AdoptionForm = props => {
     if (isFormComplete()) {
       addNewApplication(newAdoption)
     }
-  }
-
-  if (redirect) {
-    return <Redirect to="/adoptions" />
   }
 
   return (

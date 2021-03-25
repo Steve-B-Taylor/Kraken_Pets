@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react"
 import AdoptionForm from "./AdoptionForm.js"
+import SuccessTile from "./SuccessTile.js"
 
 const AnimalShow = props => {
   const [animal, setAnimal] = useState([])
   const [showForm, setShowForm] = useState(false)
+  const [afterSubmission, setAfterSubmission] = useState(false)
 
   const getAnimal = async () => {
     try {
@@ -41,9 +43,26 @@ const AnimalShow = props => {
     event.preventDefault()
     setShowForm(true)
   }
+
+  const handleWhatToShow = () => {
+    setAfterSubmission(true)
+  }
+
   let formDisplay = ""
   if (showForm) {
-    formDisplay = <AdoptionForm id={props.match.params.id} />
+    formDisplay = <AdoptionForm id={props.match.params.id} handleWhatToShow={handleWhatToShow}/>
+  }
+
+  let whatToShow
+  if (afterSubmission) {
+    whatToShow = <SuccessTile />
+  } else {
+    whatToShow = <div>
+      <button onClick={showAdoptionForm} className="button round">
+      Adopt Me!
+      </button>
+      {formDisplay}
+    </div>
   }
 
   return (
@@ -59,10 +78,7 @@ const AnimalShow = props => {
           Vaccination Status: {vaccinated} {vaccinatedSupplemental}
         </li>
       </ul>
-      <button onClick={showAdoptionForm} className="button round">
-        Adopt Me!
-      </button>
-      {formDisplay}
+      {whatToShow}
     </div>
   )
 }
