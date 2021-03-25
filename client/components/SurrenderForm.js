@@ -147,7 +147,7 @@ const SurrenderForm = props => {
         <label htmlFor="petType">
           Pet Type:
           <select id="petType" name="petType" value={newSurrender.petType} onChange={handleInput}>
-            <option value=""></option>
+            <option value="">Please Select</option>
             <option value="Leeches">Leeches</option>
             <option value="Red Garras">Red Garras</option>
           </select>
@@ -161,7 +161,7 @@ const SurrenderForm = props => {
             value={newSurrender.vaccinationStatus}
             onChange={handleInput}
           >
-            <option value=""></option>
+            <option value="">Please Select</option>
             <option value="true">Yes</option>
             <option value="false">No</option>
           </select>
