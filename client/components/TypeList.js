@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import TypeTile from "./TypeTile.js"
-import NavBar from "./NavBar.js"
 
 const TypeList = props => {
   const [pets, setPets] = useState([])

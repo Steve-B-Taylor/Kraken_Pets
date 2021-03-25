@@ -11,10 +11,10 @@ const AnimalList = (props) => {
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
-        throw(error) 
+        throw(error)
       }
       const fetchedData = await response.json()
-      setAnimalType(fetchedData.pet) 
+      setAnimalType(fetchedData.pet)
     } catch (error) {
       console.error(error)
     }
@@ -22,11 +22,11 @@ const AnimalList = (props) => {
 
   useEffect(() => {
     fetchAnimalType()
-  }, [])
+  }, [props])
 
   const petList = animalType.adoptablePets.map(animal => {
     return(
-      <AnimalTile 
+      <AnimalTile
         key={animal.id}
         id={animal.id}
         name={animal.name}
@@ -34,7 +34,7 @@ const AnimalList = (props) => {
         vaccinationStatus={animal.vaccinationStatus}
         imgUrl={animal.imgUrl}
         type={animalType.type}
-      /> 
+      />
     )
   })
   return(
