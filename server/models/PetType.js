@@ -46,9 +46,7 @@ class PetType {
     try {
       const client = await pool.connect()
       const result = await client.query("SELECT * FROM adoptable_pets WHERE type_id = $1;", [this.id])
-      console.log(result.rows)
       const relatedPets = result.rows.map(pet => new AdoptablePet(pet))
-      console.log(relatedPets)
       client.release()
 
       return relatedPets
