@@ -12,7 +12,7 @@ const SurrenderForm = props => {
     petName: "",
     petAge: "",
     petType: "",
-    petImage: "",
+    petImageUrl: "",
     vaccinationStatus: ""
   })
   const [errors, setErrors] = useState([])
@@ -37,7 +37,7 @@ const SurrenderForm = props => {
           throw error
         }
       } else {
-        const data = await response.Json()
+        const data = await response.json()
         if (data) {
           setRedirect(true)
         }
@@ -62,12 +62,12 @@ const SurrenderForm = props => {
       "petName",
       "petAge",
       "petType",
-      "petImage",
+      "petImageUrl",
       "vaccinationStatus"
     ]
     requiredFields.forEach(field => {
       if (newSurrender[field].trim() === "") {
-        submissionErrors = { ...submissionErrors, [field]: `${_.capitalize(field)} is required` }
+        submissionErrors = { ...submissionErrors, [field]: `is required` }
       }
     })
     setErrors(submissionErrors)
@@ -88,7 +88,8 @@ const SurrenderForm = props => {
   return (
     <div>
       <h1>Surrender Your Pet:</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="surrender_form">
+        <Error errors ={errors} />
         <label htmlFor="name">
           Your Name:
           <input
@@ -133,8 +134,19 @@ const SurrenderForm = props => {
           />
         </label>
 
+        <label htmlFor="petImageUrl">
+          Picture of your pet:
+          <input
+            id="petImageUrl"
+            type="text"
+            name="petImageUrl"
+            onChange={handleInput}
+            value={newSurrender.petImageUrl}
+          />
+        </label>
+
         <label htmlFor="petAge">
-          Pets Age:
+          Pets Age (in months):
           <input
             id="petAge"
             type="text"
