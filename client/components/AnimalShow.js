@@ -50,26 +50,28 @@ const AnimalShow = props => {
 
   let formDisplay = ""
   if (showForm) {
-    formDisplay = <AdoptionForm id={props.match.params.id} handleWhatToShow={handleWhatToShow}/>
+    formDisplay = <AdoptionForm id={props.match.params.id} handleWhatToShow={handleWhatToShow} />
   }
 
   let whatToShow
   if (afterSubmission) {
     whatToShow = <SuccessTile />
   } else {
-    whatToShow = <div>
-      <button onClick={showAdoptionForm} className="button round">
-      Adopt Me!
-      </button>
-      {formDisplay}
-    </div>
+    whatToShow = (
+      <div>
+        <button onClick={showAdoptionForm} className="button round">
+          Adopt Me!
+        </button>
+        {formDisplay}
+      </div>
+    )
   }
 
   return (
     <div>
       <h1>{animal.name}'s Page</h1>
       <img className="images" src={animal.imgUrl}></img>
-      <ul>
+      <ul className="no-bullet">
         <li>Age: {animal.age} months old</li>
         <li>
           {animal.name}'s story: {animal.adoptionStory}

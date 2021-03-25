@@ -2,3 +2,11 @@
   max-width: 250px;
   max-height: 250px;
 }
+
+.adoption_app {
+  max-width: 40%;
+  margin: auto;
+  border: 1px solid grey;
+  border-radius: 5%;
+  padding: 15px;
+}

@@ -30,8 +30,7 @@ const TypeList = props => {
 
   return (
     <div>
-      <h1>Pet Types:</h1>
-      <ul>{typeObjects}</ul>
+      <div>{typeObjects}</div>
     </div>
   )
 }

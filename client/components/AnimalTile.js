@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
-
-const AnimalTile = (props) => {
+const AnimalTile = props => {
   let vaccinated
   if (props.vaccinationStatus) {
     vaccinated = "Yes"
@@ -10,10 +9,14 @@ const AnimalTile = (props) => {
     vaccinated = "No"
   }
 
-  return(
+  return (
     <div>
-      <Link to={`/pets/${props.type}/${props.id}`}><img className = "images" src={props.imgUrl}></img></Link>
-      <p><Link to={`/pets/${props.type}/${props.id}`}>{props.name}</Link></p>
+      <Link to={`/pets/${props.type}/${props.id}`}>
+        <img className="images" src={props.imgUrl}></img>
+      </Link>
+      <p>
+        <Link to={`/pets/${props.type}/${props.id}`}>{props.name}</Link>
+      </p>
       <p>Age: {props.age} months</p>
       <p>Vaccinated: {vaccinated}</p>
     </div>
