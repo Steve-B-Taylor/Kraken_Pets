@@ -10,15 +10,21 @@ const AnimalTile = props => {
   }
 
   return (
-    <div>
-      <Link to={`/pets/${props.type}/${props.id}`}>
-        <img className="images" src={props.imgUrl}></img>
-      </Link>
-      <p>
-        <Link to={`/pets/${props.type}/${props.id}`}>{props.name}</Link>
-      </p>
-      <p>Age: {props.age} months</p>
-      <p>Vaccinated: {vaccinated}</p>
+    <div className="cell">  
+      <div className="card">
+        <div className="card-devider">
+          <h2><Link to={`/pets/${props.type}/${props.id}`}>{props.name}</Link></h2>
+        </div>
+        <Link to={`/pets/${props.type}/${props.id}`}>
+          <img className="images thumbnail" src={props.imgUrl}></img>
+        </Link>
+        <div className="card-section">
+          <p>
+            Age: {props.age} months<br/> 
+            Vaccinated: {vaccinated}
+          </p>
+        </div>
+      </div>
     </div>
   )
 }

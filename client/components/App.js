@@ -16,7 +16,7 @@ const App = props => {
     <BrowserRouter>
       <NavBar />
       <div className="grid-container no-bullet">
-        <div className="grid-x grid-margin-x align-middle text-center">
+        <div className="grid-x grid-margin-x text-center">
           <Switch>
             <Route exact path="/">
               <Redirect to="/pets" />
@@ -28,6 +28,7 @@ const App = props => {
             <Route exact path="/adoptions/new" component={SurrenderForm} />
           </Switch>
         </div>
+        <footer className="footer">We're Kraken Pets!</footer>
       </div>
     </BrowserRouter>
   )

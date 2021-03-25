@@ -90,7 +90,8 @@ const SurrenderForm = props => {
       <h1>Surrender Your Pet:</h1>
       <form onSubmit={handleSubmit} className="adoption_app">
         <Error errors={errors} />
-        <label htmlFor="name">
+        
+          <label htmlFor="name">
           Your Name:
           <input
             id="name"

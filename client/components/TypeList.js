@@ -30,7 +30,7 @@ const TypeList = props => {
 
   return (
     <div>
-      <div>{typeObjects}</div>
+      {typeObjects}
     </div>
   )
 }
