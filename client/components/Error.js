@@ -14,8 +14,8 @@ const Error = props => {
       )
     })
     return (
-      <div>
-        <ul>{errorList}</ul>
+      <div className="callout alert text-left">
+        <ul className="error">{errorList}</ul>
       </div>
     )
   } else {

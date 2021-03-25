@@ -44,7 +44,7 @@ const AdoptionForm = props => {
     const requiredFields = ["name", "phoneNumber", "email", "homeStatus"]
     requiredFields.forEach(field => {
       if (newAdoption[field].trim() === "") {
-        submitErrors = { ...submissionErrors, [field]: "is required." }
+        submitErrors = {...submitErrors, [field]: "is required." }
       }
     })
     setErrors(submitErrors)
@@ -67,50 +67,69 @@ const AdoptionForm = props => {
 
   return (
     <form onSubmit={handleSubmit} className="adoption_app">
-      <Error errors={errors} />
-      <h2>Apply to adopt me!</h2>
-      <label htmlFor="name">
-        Your name
-        <input id="name" type="text" name="name" onChange={handleChange} value={newAdoption.name} />
-      </label>
+      <div className="grid-contrainer">
+        <div className="grid-x grid-padding-x">
+          <div className="cell">
+            <h2>Apply to adopt me!</h2>
+            <Error errors={errors} />
+          </div>
 
-      <label htmlFor="phoneNumber">
-        Phone Number
-        <input
-          id="phoneNumber"
-          type="text"
-          name="phoneNumber"
-          onChange={handleChange}
-          value={newAdoption.phoneNumber}
-        />
-      </label>
+          <div className="row">
+            <div className="medium-6 columns">
+              <label htmlFor="name">
+                Your name
+                <input id="name" type="text" name="name" onChange={handleChange} value={newAdoption.name} />
+              </label>
+            </div>
 
-      <label htmlFor="email">
-        Email Address
-        <input
-          id="email"
-          type="text"
-          name="email"
-          onChange={handleChange}
-          value={newAdoption.email}
-        />
-      </label>
+            <div className="medium-6 columns">
+              <label htmlFor="phoneNumber">
+                Phone Number
+                <input
+                  id="phoneNumber"
+                  type="text"
+                  name="phoneNumber"
+                  onChange={handleChange}
+                  value={newAdoption.phoneNumber}
+                />
+              </label>
+            </div>
+          </div>
 
-      <label htmlFor="homeStatus">
-        Own or Rent?
-        <select
-          id="homeStatus"
-          name="homeStatus"
-          onChange={handleChange}
-          value={newAdoption.homeStatus}
-        >
-          <option value=""></option>
-          <option value="Own">Own</option>
-          <option value="Rent">Rent</option>
-        </select>
-      </label>
+          <div className="row">
+            <div className="medium-6 columns">
+              <label htmlFor="email">
+                Email Address
+                <input
+                  id="email"
+                  type="text"
+                  name="email"
+                  onChange={handleChange}
+                  value={newAdoption.email}
+                />
+              </label>
+            </div>
 
-      <input className="button round" type="submit" value="Apply" />
+            <div className="medium-6 columns">
+              <label htmlFor="homeStatus">
+                Own or Rent?
+                <select
+                  id="homeStatus"
+                  name="homeStatus"
+                  onChange={handleChange}
+                  value={newAdoption.homeStatus}
+                >
+                  <option value="">Please Select</option>
+                  <option value="Own">Own</option>
+                  <option value="Rent">Rent</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <input className="button round" type="submit" value="Apply" />
+        </div>
+      </div>
     </form>
   )
 }

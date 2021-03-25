@@ -69,19 +69,24 @@ const AnimalShow = props => {
 
   return (
     <div>
-      <h1>{animal.name}'s Page</h1>
-      <img className="images" src={animal.imgUrl}></img>
-      <ul className="no-bullet">
-        <li>Age: {animal.age} months old</li>
-        <li>
-          {animal.name}'s story: {animal.adoptionStory}
-        </li>
-        <li>
-          Vaccination Status: {vaccinated} {vaccinatedSupplemental}
-        </li>
-      </ul>
+      <div className="animal-show">
+        <h1>{animal.name}</h1>
+        <img className="images thumbnail" src={animal.imgUrl}></img>
+        <ul className="no-bullet">
+          <li>Age: {animal.age} months old</li>
+          <li>
+            {animal.name}'s story: {animal.adoptionStory}
+          </li>
+          <li>
+            Vaccination Status: {vaccinated} {vaccinatedSupplemental}
+          </li>
+        </ul>
+      </div>
       {whatToShow}
+      <br/>
+      <br/>
     </div>
+
   )
 }
 
