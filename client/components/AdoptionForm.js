@@ -68,9 +68,9 @@ const AdoptionForm = props => {
   return (
     <form onSubmit={handleSubmit} className="adoption_app">
       <Error errors={errors} />
-      <h1>Add a new Adoption Application</h1>
+      <h2>Apply to adopt me!</h2>
       <label htmlFor="name">
-        Name
+        Your name
         <input id="name" type="text" name="name" onChange={handleChange} value={newAdoption.name} />
       </label>
 

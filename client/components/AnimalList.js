@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import AnimalTile from './AnimalTile.js'
+import React, { useState, useEffect } from "react"
+import AnimalTile from "./AnimalTile.js"
 
-const AnimalList = (props) => {
-  const [animalType, setAnimalType] = useState({adoptablePets: []})
+const AnimalList = props => {
+  const [animalType, setAnimalType] = useState({ adoptablePets: [] })
 
   const fetchAnimalType = async () => {
     try {
@@ -11,7 +11,7 @@ const AnimalList = (props) => {
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
-        throw(error)
+        throw error
       }
       const fetchedData = await response.json()
       setAnimalType(fetchedData.pet)
@@ -25,7 +25,7 @@ const AnimalList = (props) => {
   }, [props])
 
   const petList = animalType.adoptablePets.map(animal => {
-    return(
+    return (
       <AnimalTile
         key={animal.id}
         id={animal.id}
@@ -37,11 +37,7 @@ const AnimalList = (props) => {
       />
     )
   })
-  return(
-    <div>
-      {petList}
-    </div>
-  )
+  return <div>{petList}</div>
 }
 
 export default AnimalList
