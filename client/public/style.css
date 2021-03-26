@@ -55,7 +55,8 @@ form {
 
 .animal-show {
   max-width: 40%;
-  margin: 5% auto 0% auto;
+  margin: 1% auto 1% auto;
   background-color: #e0e2e9;
   border-radius: 2%;
+  padding: 0.25rem 1rem;
 }
