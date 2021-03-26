@@ -37,7 +37,7 @@ const AnimalList = props => {
       />
     )
   })
-  return <div>{petList}</div>
+  return <div>{petList}<br/><br/></div>
 }
 
 export default AnimalList

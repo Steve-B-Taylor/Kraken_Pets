@@ -16,8 +16,8 @@ const TypeTile = props => {
           <div className="card-section">
             {description}
           </div>
+          <br/>
         </div>
-        <br/>
       </div>
   )
 }
