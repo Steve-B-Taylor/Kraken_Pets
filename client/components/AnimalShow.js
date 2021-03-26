@@ -29,14 +29,13 @@ const AnimalShow = props => {
   }, [])
 
   let vaccinated
-  let vaccinatedSupplemental
   if (animal.vaccinationStatus) {
     vaccinated = "Yes"
   } else {
     vaccinated = "No"
-  }
-  if (props.match.params.type == "Leeches") {
-    vaccinatedSupplemental = ` (If you're vaccinated, then ${animal.name} will be vaccinated too!)`
+    if (props.match.params.type == "Leeches") {
+      vaccinated += ` (If you're vaccinated, then ${animal.name} will be vaccinated too!)`
+    }
   }
 
   const showAdoptionForm = event => {
@@ -73,16 +72,17 @@ const AnimalShow = props => {
         <h1>{animal.name}</h1>
         <img className="images thumbnail" src={animal.imgUrl}></img>
         <ul className="no-bullet">
-          <li>Age: {animal.age} months old</li>
+          <li><strong>Age:</strong> {animal.age} months old</li>
           <li>
-            {animal.name}'s story: {animal.adoptionStory}
+            <strong>{animal.name}'s story:</strong> {animal.adoptionStory}
           </li>
           <li>
-            Vaccination Status: {vaccinated} {vaccinatedSupplemental}
+            <strong>Vaccination Status:</strong> {vaccinated}
           </li>
         </ul>
       </div>
       {whatToShow}
+      <br/>
       <br/>
       <br/>
     </div>

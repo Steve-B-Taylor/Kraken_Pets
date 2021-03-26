@@ -10,7 +10,6 @@ applicationRouter.post("/", async (req, res) => {
     return res.status(201).json({ newApplication })
   } catch (error) {
     console.error(error)
-    console.log(error)
     return res.status(422).json({ errors: error })
   }
 })

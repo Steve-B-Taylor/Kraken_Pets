@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 
 const AnimalTile = props => {
@@ -20,8 +20,8 @@ const AnimalTile = props => {
         </Link>
         <div className="card-section">
           <p>
-            Age: {props.age} months<br/> 
-            Vaccinated: {vaccinated}
+            <strong>Age:</strong> {props.age} months<br/> 
+            <strong>Vaccinated:</strong> {vaccinated}
           </p>
         </div>
       </div>
