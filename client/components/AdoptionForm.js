@@ -70,7 +70,7 @@ const AdoptionForm = props => {
       <div className="grid-contrainer">
         <div className="grid-x grid-padding-x">
           <div className="cell">
-            <h2>Apply to adopt me!</h2>
+            <h2>Adopt me!</h2>
             <Error errors={errors} />
           </div>
 
@@ -112,7 +112,7 @@ const AdoptionForm = props => {
 
             <div className="medium-6 columns">
               <label htmlFor="homeStatus">
-                Own or Rent?
+                Own or Rent Your Home?
                 <select
                   id="homeStatus"
                   name="homeStatus"
