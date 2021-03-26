@@ -29,7 +29,7 @@ const TypeList = props => {
   })
 
   return (
-    <div>
+    <div className = "home">
       {typeObjects}
     </div>
   )

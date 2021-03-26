@@ -1,5 +1,5 @@
 body {
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
 }
 
 .images {
@@ -34,8 +34,8 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #0A0A0A;
-  color: #2F99E8;
+  background-color: #0a0a0a;
+  color: #2f99e8;
   text-align: center;
   padding: 15px 0px;
 }
@@ -50,7 +50,7 @@ body {
 }
 
 form {
-  background-color: #E0E2E9;
+  background-color: #e0e2e9;
 }
 
 .animal-show {
@@ -59,4 +59,8 @@ form {
   background-color: #e0e2e9;
   border-radius: 2%;
   padding: 0.25rem 1rem;
+}
+
+.home {
+  padding-bottom: 3rem;
 }
