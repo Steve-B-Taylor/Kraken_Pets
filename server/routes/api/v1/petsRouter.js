@@ -1,5 +1,6 @@
 import express from "express"
-import PetType from '../../../models/PetType.js'
+import AdoptablePet from "../../../models/AdoptablePet.js"
+import PetType from "../../../models/PetType.js"
 
 const petsRouter = new express.Router()
 
@@ -9,7 +10,7 @@ petsRouter.get("/", async (req, res) => {
     return res.status(201).json({ pets: pets })
   } catch (error) {
     console.error(error)
-    return res.status(500).json({error})
+    return res.status(500).json({ error })
   }
 })
 
@@ -20,7 +21,17 @@ petsRouter.get("/:type", async (req, res) => {
     return res.status(200).json({ pet: petType })
   } catch (error) {
     console.error(error)
-    return res.status(500).json({errors})
+    return res.status(500).json({ errors })
+  }
+})
+
+petsRouter.get("/:type/:id", async (req, res) => {
+  try {
+    const pet = await AdoptablePet.findById(req.params.id)
+    return res.status(200).json({ pet: pet })
+  } catch (error) {
+    console.error(error)
+    return res.status(500).json({ errors })
   }
 })
 
