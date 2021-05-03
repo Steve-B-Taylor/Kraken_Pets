@@ -35,4 +35,5 @@ const TypeList = props => {
   )
 }
 
+
 export default TypeList

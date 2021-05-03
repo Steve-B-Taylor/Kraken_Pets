@@ -86,7 +86,6 @@ const AnimalShow = props => {
       <br/>
       <br/>
     </div>
-
   )
 }
 
