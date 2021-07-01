@@ -33,7 +33,7 @@
     "nodemon": "^2.0.4",
     "prettier": "^1.17.0",
     "supertest": "^4.0.2",
-    "webpack-dev-server": "~2.4.2",
+    "webpack-dev-server": ">=3.1.11",
     "@hot-loader/react-dom": "~16.13"
   },
   "dependencies": {
